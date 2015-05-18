@@ -1,0 +1,1 @@
+dataResults = '{"name":"root","val":0,"children":[{"name":"fail","val":51.0,"children":[{"name":"documentacion err\\u00f3nea o faltante","val":35.2,"children":[]},{"name":"fuera de plazo","val":27.4,"children":[]},{"name":"requisitos incumplido","val":37.2,"children":[]}]},{"name":"ok","val":49.0,"children":[]}]}'

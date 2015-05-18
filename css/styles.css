@@ -1,4 +1,7 @@
 
+
+/* Common */
+
 /*Columns with CP and Mean team*/
 .cpTimes  div{
   font: 10px sans-serif;
@@ -21,7 +24,9 @@
   fill: steelblue;
   fill-opacity: .9;
 }
-
+.bar:hover {
+  fill: orangered ;
+}
 .x.axis path {
   display: none;
 }
@@ -31,9 +36,35 @@ label {
   top: 10px;
   right: 10px;
 }
+.d3-tip {
+  line-height: 0;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
 
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 8px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}	
 /*Styles for indented tree*/
-/*
 .node rect {
   cursor: pointer;
   fill: #fff;
@@ -53,4 +84,4 @@ path.link {
   stroke-width: 1.5px;
 }
 
-*/
+
