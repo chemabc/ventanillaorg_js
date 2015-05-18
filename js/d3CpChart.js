@@ -68,13 +68,15 @@ function createChartGraph(data){
 	
 	var xAxis = d3.svg.axis()
 	    .scale(x)
-	    .orient("bottom");
-	xAxis.tickValues(data.map(function(d,i){
-		if(i%10==0) return d.cp;
-		})
-		.filter(function(d){
-			return !!d;
-		})	
+	    .orient("bottom")
+		.tickValues(data.map(function(d,i){
+			/*
+			if(i%10==0) return d.cp;
+			})
+			.filter(function(d){
+				return !!d;
+			*/
+			})	
 		);
 	
 	var yAxis = d3.svg.axis()
@@ -109,8 +111,12 @@ function createChartGraph(data){
 	  svg.append("g")
 	      .attr("class", "x axis")
 	      .attr("transform", "translate(0," + height + ")")
-	      //.attr("transform", "translate(0,0)")
-	      .call(xAxis);
+	      .call(xAxis)
+	      .append("text")
+	     .attr("x", width)
+	     .attr("y", 12)
+	     .style("text-anchor", "end")
+	     .text("Postal Code");
 	
 	  //Crear el Y Axis -> rota el texto!
 	  svg.append("g")
@@ -135,12 +141,17 @@ function createChartGraph(data){
 	      .on('mouseover', tip.show)
       	  .on('mouseout', tip.hide);
 	
+	  //d3.select("input").property("checked", false);
 	  d3.select("input").on("change", change);
 	
+	  
 	  var sortTimeout = setTimeout(function() {
-	    d3.select("input").property("checked", true).each(change);
+	   // d3.select("input").property("checked", true).each(change);
 	  }, 2000);
 	
+	/***
+	 * FUNCION ORDENAR DATOS
+	 */
 	  function change() {
 	    clearTimeout(sortTimeout);
 	
